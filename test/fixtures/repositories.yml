@@ -1,0 +1,41 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  description: MyString
+  fork: false
+  forks: 
+  has_downloads: false
+  has_issues: 
+  has_wiki: false
+  homepage: MyString
+  language: MyString
+  name: MyString
+  open_issues: 1
+  organization: MyString
+  owner_email: MyString
+  owner_name: MyString
+  private: 
+  pushed_at: 2011-03-04 23:30:57
+  size: 1
+  url: MyString
+  watchers: 1
+
+two:
+  description: MyString
+  fork: false
+  forks: 
+  has_downloads: false
+  has_issues: 
+  has_wiki: false
+  homepage: MyString
+  language: MyString
+  name: MyString
+  open_issues: 1
+  organization: MyString
+  owner_email: MyString
+  owner_name: MyString
+  private: 
+  pushed_at: 2011-03-04 23:30:57
+  size: 1
+  url: MyString
+  watchers: 1
