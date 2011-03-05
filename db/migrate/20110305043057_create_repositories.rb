@@ -12,7 +12,7 @@ class CreateRepositories < ActiveRecord::Migration
       t.boolean :private
 
       t.boolean :fork
-      t.interger :forks
+      t.integer :forks
       t.integer :watchers
 
       t.true :has_issues
