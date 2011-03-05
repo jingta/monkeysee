@@ -29,3 +29,13 @@ gem 'sqlite3'
 # group :development, :test do
 #   gem 'webrat'
 # end
+
+
+group :cucumber do
+  gem 'capybara'
+  gem 'database_cleaner' #why?
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'    # So you can do Then show me the page
+end  
