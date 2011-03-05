@@ -15,7 +15,7 @@ class CreateRepositories < ActiveRecord::Migration
       t.integer :forks
       t.integer :watchers
 
-      t.true :has_issues
+      t.boolean :has_issues
       t.integer :open_issues
 
       t.boolean :has_downloads
