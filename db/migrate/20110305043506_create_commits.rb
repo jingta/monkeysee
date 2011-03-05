@@ -1,9 +1,8 @@
 class CreateCommits < ActiveRecord::Migration
   def self.up
     create_table :commits do |t|
-      t.string :author_email
-      t.string :author_name
-      t.string :author_username
+      t.references :committer
+
       t.string :sha
       t.string :message
       t.string :modified

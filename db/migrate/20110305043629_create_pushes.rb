@@ -5,8 +5,9 @@ class CreatePushes < ActiveRecord::Migration
       t.string :before_sha
       t.string :compare
       t.boolean :forced
-      t.string :pusher_email
-      t.string :pusher_name
+
+      t.references :committer
+
       t.string :ref
 
       t.timestamps
