@@ -9,7 +9,7 @@ class CreateRepositories < ActiveRecord::Migration
       t.string :url
       t.datetime :pushed_at
       t.integer :size
-      t.boolan :private
+      t.boolean :private
 
       t.boolean :fork
       t.interger :forks
