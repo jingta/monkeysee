@@ -7,7 +7,6 @@ class CreateRepositories < ActiveRecord::Migration
       t.string :language
       t.string :organization
       t.string :url
-      t.datetime :pushed_at
       t.integer :size
       t.boolean :private
 

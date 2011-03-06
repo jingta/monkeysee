@@ -1,38 +1,60 @@
+require 'digest/sha1'
+
+Factory.sequence(:sha) do |n|
+  Digest::SHA1.hexdigest "sha-#{n}"
+end
 
 Factory.define :repository do |r|
-  r.name "monkeysee"
+  r.sequence(:name) {|n| "monkeysee-#{n}"}
   r.description "find out what branches people hang out in"
-#  r.homepage "nil"
-  r.language "ruby"
-#  r.organization "nil"
-  r.url "github.com/jingta/monkeysee"
-  r.pushed_at {Time.now - 1.day}
-  r.size 123013
+  r.homepage nil
+  r.language "Ruby"
+  r.organization nil
+  r.url "https://github.com/jingta/monkeysee"
+  r.created_at {Time.now - 1.day}
+  r.size 1384
   r.private false
   
   r.fork false
-  r.forks 0
-  r.watchers 0
+  r.forks 1
+  r.watchers 1
 
-  r.has_issues false
+  r.has_issues true
   r.open_issues 0
 
-  r.has_downloads false
-  r.has_wiki false
+  r.has_downloads true
+  r.has_wiki true
 
   r.association :committer
 end
 
 Factory.define :branch do |b|
+  b.name { "refs/head/" + (rand(100) + 1 > 33) ? "master" : "cool-feature" }
   b.association :repository
 end
 
 Factory.define :push do |p|
-  #TODO
+  p.after_sha { Factory.next :sha }
+  p.before_sha { Factory.next :sha }
+  p.compare { "https://github.com/jingta/monkeysee/compare/#{before_sha[0..6]}...#{after_sha[0..6]}"  }
+  p.forced false
+  p.association :committer
+  p.association :branch
 end
 
 Factory.define :commit do |c|
-  #TODO
+  c.sha { Factory.next :sha }
+  c.message "Updated the awesome files"
+
+  c.modified []
+  c.added []
+  c.removed []
+
+  c.timestamp { Time.now - 1.hour }
+  c.url { "https://github.com/jingta/monkeysee/commit/#{sha}" }
+
+  c.association :push
+  c.association :committer
 end
 
 Factory.define :committer do |c|
