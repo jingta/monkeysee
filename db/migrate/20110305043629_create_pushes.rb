@@ -7,8 +7,7 @@ class CreatePushes < ActiveRecord::Migration
       t.boolean :forced
 
       t.references :committer
-
-      t.string :ref
+      t.references :branch
 
       t.timestamps
     end
