@@ -2,7 +2,8 @@ class CreateBranches < ActiveRecord::Migration
   def self.up
     create_table :branches do |t|
       t.string :name
-      t.references :repository
+      t.belongs_to :repository
+      t.belongs_to :owner
 
       t.timestamps
     end

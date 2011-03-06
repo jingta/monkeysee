@@ -15,12 +15,12 @@ ActiveRecord::Schema.define(:version => 20110306175513) do
   create_table "branches", :force => true do |t|
     t.string   "name"
     t.integer  "repository_id"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "commits", :force => true do |t|
-    t.integer  "committer_id"
     t.string   "sha"
     t.string   "message"
     t.string   "modified"
@@ -28,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20110306175513) do
     t.string   "removed"
     t.datetime "timestamp"
     t.string   "url"
+    t.integer  "push_id"
+    t.integer  "committer_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,8 +47,8 @@ ActiveRecord::Schema.define(:version => 20110306175513) do
     t.string   "before_sha"
     t.string   "compare"
     t.boolean  "forced"
-    t.integer  "committer_id"
-    t.string   "ref"
+    t.integer  "pusher_id"
+    t.integer  "branch_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20110306175513) do
     t.string   "language"
     t.string   "organization"
     t.string   "url"
-    t.datetime "pushed_at"
     t.integer  "size"
     t.boolean  "private"
     t.boolean  "fork"
@@ -68,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20110306175513) do
     t.integer  "open_issues"
     t.boolean  "has_downloads"
     t.boolean  "has_wiki"
-    t.integer  "committer_id"
+    t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

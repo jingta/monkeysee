@@ -25,20 +25,20 @@ Factory.define :repository do |r|
   r.has_downloads true
   r.has_wiki true
 
-  r.association :committer
+  r.association :owner, :factory => :committer
 end
 
 Factory.define :branch do |b|
-  b.name { "refs/head/" + (rand(100) + 1 > 33) ? "master" : "cool-feature" }
+  b.name { "refs/head/" + ((rand(100) + 1 > 33) ? "master" : "cool-feature") }
   b.association :repository
 end
 
 Factory.define :push do |p|
   p.after_sha { Factory.next :sha }
   p.before_sha { Factory.next :sha }
-  p.compare { "https://github.com/jingta/monkeysee/compare/#{before_sha[0..6]}...#{after_sha[0..6]}"  }
+  p.compare {|p| "https://github.com/jingta/monkeysee/compare/#{p.before_sha[0..6]}...#{p.after_sha[0..6]}"  }
   p.forced false
-  p.association :committer
+  p.association :pusher, :factory => :committer
   p.association :branch
 end
 
@@ -51,7 +51,7 @@ Factory.define :commit do |c|
   c.removed []
 
   c.timestamp { Time.now - 1.hour }
-  c.url { "https://github.com/jingta/monkeysee/commit/#{sha}" }
+  c.url {|c| "https://github.com/jingta/monkeysee/commit/#{c.sha}" }
 
   c.association :push
   c.association :committer
@@ -59,6 +59,6 @@ end
 
 Factory.define :committer do |c|
   c.sequence(:username) {|n| "committer_#{n}" }
-  c.email { "#{username}@test.com" }
-  c.name { "#{username.capitalize} Smith" }
+  c.email {|c| "#{c.username}@test.com" }
+  c.name {|c| "#{c.username.capitalize} Smith" }
 end

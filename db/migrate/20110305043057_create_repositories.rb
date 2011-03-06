@@ -20,7 +20,7 @@ class CreateRepositories < ActiveRecord::Migration
       t.boolean :has_downloads
       t.boolean :has_wiki
 
-      t.references :committer
+      t.belongs_to :owner
 
       t.timestamps
     end

@@ -1,8 +1,6 @@
 class CreateCommits < ActiveRecord::Migration
   def self.up
     create_table :commits do |t|
-      t.references :committer
-
       t.string :sha
       t.string :message
       t.string :modified
@@ -10,6 +8,9 @@ class CreateCommits < ActiveRecord::Migration
       t.string :removed
       t.timestamp :timestamp
       t.string :url
+
+      t.belongs_to :push
+      t.belongs_to :committer
 
       t.timestamps
     end
