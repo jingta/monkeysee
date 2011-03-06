@@ -7,7 +7,7 @@ Factory.define :repository do |r|
 #  r.organization "nil"
   r.url "github.com/jingta/monkeysee"
   r.pushed_at {Time.now - 1.day}
-  r.size = 123013
+  r.size 123013
   r.private false
   
   r.fork false
