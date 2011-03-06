@@ -44,10 +44,10 @@ end
 
 Factory.define :commit do |c|
   c.sha { Factory.next :sha }
-  c.message "Updated the awesome files"
+  c.message "Updated the awesome files and added a helper"
 
-  c.modified []
-  c.added []
+  c.modified ["awesome/file1.txt", "awesome/files.rb", "test/awesome/files_test.rb"]
+  c.added ["awesome/helper.rb", "test/awesome/helper_test.rb"]
   c.removed []
 
   c.timestamp { Time.now - 1.hour }
