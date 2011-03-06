@@ -5,8 +5,7 @@ one:
   before_sha: MyString
   compare: MyString
   forced: false
-  pusher_email: MyString
-  pusher_name: MyString
+  committer: bob
   ref: MyString
 
 two:
@@ -14,6 +13,5 @@ two:
   before_sha: MyString
   compare: MyString
   forced: false
-  pusher_email: MyString
-  pusher_name: MyString
+  committer: jim
   ref: MyString

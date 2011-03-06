@@ -12,8 +12,7 @@ one:
   name: MyString
   open_issues: 1
   organization: MyString
-  owner_email: MyString
-  owner_name: MyString
+  committer: jim
   private: 
   pushed_at: 2011-03-04 23:30:57
   size: 1
@@ -32,8 +31,7 @@ two:
   name: MyString
   open_issues: 1
   organization: MyString
-  owner_email: MyString
-  owner_name: MyString
+  committer: bob
   private: 
   pushed_at: 2011-03-04 23:30:57
   size: 1
