@@ -29,6 +29,7 @@ gem 'sqlite3'
 group :development, :test do
 #   gem 'webrat'
   gem 'factory_girl'
+  gem 'factory_girl_rails'
   gem 'mocha'
 end
 
