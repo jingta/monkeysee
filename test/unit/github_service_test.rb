@@ -4,8 +4,7 @@ class GithubServiceTest < ActiveSupport::TestCase
 
   def test_parse_payload
     payload = File.open('test/fixtures/files/payload.json', 'r').collect.join
-    puts payload
-    puts JSON.parse payload
+    GithubService.parse_post_commit_payload! payload
   end
 
 end
