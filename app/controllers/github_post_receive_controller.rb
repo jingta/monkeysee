@@ -1,0 +1,2 @@
+class GithubPostReceiveController < ApplicationController
+end
